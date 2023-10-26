@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@400;500;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: Mplus 1p;
+  scroll-behavior: smooth;
+}
+span {
+  display: inline-block;
+}
+input {
+  outline: none;
+}
+a {
+  text-decoration: none;
+  color: #22343d;
+  font-weight: 400;
+}
+li {
+  list-style: none;
+}
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+main {
+  z-index: -1;
+}
+.container {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.hero-section {
+  background-image: url(../public/assets/heroBackImg.svg);
+}
+.button-hero {
+  transition: 0.1s linear;
+}
+.button-hero:hover {
+  background-color: #122947;
+  color: #fff;
+  transition: 0.1s linear;
+}
+.card {
+  text-align: center;
+}
+.txts {
+  padding-top: 25rem;
+}
+.pharDec {
+  text-decoration: underline;
+}
+.section-2 {
+  background-image: url(../public/assets/section-2.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.section-4 {
+  background-image: url(../public/assets/history-img.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
