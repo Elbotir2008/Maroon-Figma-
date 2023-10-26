@@ -3,6 +3,7 @@ import Footer from "./components/footer/Footer.js";
 import Header from "./components/header/Header.jsx";
 import Allhome from "./pages/home/AllHome.tsx";
 import Katalog1 from "./pages/katalog/katalog-1/Katalog1.js";
+import OneCatalog from "./pages/oneCatalog/OneCatalog.tsx";
 const App = () => {
   return (
     <div>
@@ -11,6 +12,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Allhome />} />
           <Route path="/catalog" element={<Katalog1 />} />
+          <Route path="/oneCatalog" element={<OneCatalog />} />
         </Routes>
         <Footer />
       </Router>
