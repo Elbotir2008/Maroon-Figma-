@@ -1,9 +1,8 @@
-import React from "react";
 import { arrow, heroImg1, heroImg2 } from "../../../../public/allPictures";
 
 const Hero = () => {
   return (
-    <section className="hero-section w-full h-[51rem] ps-[7rem] pt-[5rem]">
+    <section className="hero-section w-full h-[55rem] ps-[7rem] pt-[5rem]">
       <div className="container flex items-center">
         <div className="hero-1">
           <img src={heroImg1} alt="Eror" />
