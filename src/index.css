@@ -61,16 +61,16 @@ main {
   text-decoration: underline;
 }
 .section-2 {
-  background-image: url(../public/assets/section-2.svg);
+  background-image: url(../public/section-2.svg);
   background-size: cover;
   background-repeat: no-repeat;
 }
-/* .section-4 {
-  background-image: url(../public/assets/history-img.svg);
+.section-4 {
+  background-image: url(../public/history-img.svg);
   background-size: cover;
   background-repeat: no-repeat;
 }
-.box:nth-child(1) {
+/*.box:nth-child(1) {
   background-image: url(../public//assets/katalog-1.svg);
   background-size: cover;
   background-repeat: no-repeat;

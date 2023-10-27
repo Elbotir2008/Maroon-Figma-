@@ -1,5 +1,5 @@
 import HomeCopies from "../HomeCopies";
-import { Link } from "react-router-dom";
+import { Link, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -26,7 +26,7 @@ const Katalog1 = () => {
           <div className="boxes grid grid-cols-4 p-[5rem] gap-2">
             {posts.length > 0
               ? posts.map((post) => (
-                  <Link to={`oneCatalog/${post.id}`} key={post.id}>
+                  <Link to={`/oneCatalog/${post.id}`} key={post.id}>
                     <div className="box">
                       <img
                         src={post.image}

@@ -1,12 +1,5 @@
 import axios from "axios";
-import {
-  arrow,
-  arrow2,
-  katalog1,
-  katalog2,
-  katalog3,
-  katalog4,
-} from "../../../../public/allPictures";
+import { arrow, arrow2 } from "../../../../public/allPictures";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -35,9 +28,11 @@ const Section1 = () => {
             <p className="text-[14px]">
               Легендарные продукты, завоевавшие любовь наших клиентов
             </p>
-            <button className="button-hero border-solid border-pharColor border-[1.2px] px-[3rem] py-[1rem] mt-[3rem]">
-              Смотреть все
-            </button>
+            <Link to="/catalog">
+              <button className="button-hero border-solid border-pharColor border-[1.2px] px-[3rem] py-[1rem] mt-[3rem]">
+                Смотреть все
+              </button>
+            </Link>
           </div>
           {posts.length > 0
             ? posts.map((post) => (
@@ -52,7 +47,9 @@ const Section1 = () => {
                     <span className="text-[1rem] text-gray-500">
                       {post.category}
                     </span>
-                    <p className="text-[1.5rem] pharDec">Подробнее</p>
+                    <Link to={`/oneCatalog/${post.id}`}>
+                      <p className="text-[1.5rem] pharDec">Подробнее</p>
+                    </Link>
                   </div>
                 </div>
               ))
@@ -70,61 +67,3 @@ const Section1 = () => {
 };
 
 export default Section1;
-{
-  /* <div className="card card-2">
-                  <img
-                    src={katalog1}
-                    className="absolute z-[-1] h-[34rem]"
-                    alt="Eror"
-                  />
-                  <div className="txts">
-                    <h5 className="text-[2.5rem]">High</h5>
-                    <span className="text-[1rem] text-gray-500">
-                      крем для лица
-                    </span>
-                    <p className="text-[1.5rem] pharDec">Подробнее</p>
-                  </div>
-                </div>
-                <div className="card card-3">
-                  <img
-                    src={katalog2}
-                    className="absolute z-[-1] h-[34rem]"
-                    alt="Eror"
-                  />
-                  <div className="txts">
-                    <h5 className="text-[2.5rem]">Rest</h5>
-                    <span className="text-[1rem] text-gray-500">
-                      минеральная пудра
-                    </span>
-                    <p className="text-[1.5rem] pharDec">Подробнее</p>
-                  </div>
-                </div>
-                <div className="card card-4">
-                  <img
-                    src={katalog3}
-                    className="absolute z-[-1] h-[34rem]"
-                    alt="Eror"
-                  />
-                  <div className="txts">
-                    <h5 className="text-[2.5rem]">Rose</h5>
-                    <span className="text-[1rem] text-gray-500">
-                      крем для лица
-                    </span>
-                    <p className="text-[1.5rem] pharDec">Подробнее</p>
-                  </div>
-                </div>
-                <div className="card card-5">
-                  <img
-                    src={katalog4}
-                    className="absolute z-[-1] h-[34rem]"
-                    alt="Eror"
-                  />
-                  <div className="txts">
-                    <h5 className="text-[2.5rem]">Milk</h5>
-                    <span className="text-[1rem] text-gray-500">
-                      масло для тела
-                    </span>
-                    <p className="text-[1.5rem] pharDec">Подробнее</p>
-                  </div>
-                </div> */
-}

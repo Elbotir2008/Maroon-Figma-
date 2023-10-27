@@ -12,7 +12,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Allhome />} />
           <Route path="/catalog" element={<Katalog1 />} />
-          <Route path="/oneCatalog" element={<OneCatalog />} />
+          <Route path="oneCatalog/:id" element={<OneCatalog />} />
         </Routes>
         <Footer />
       </Router>
