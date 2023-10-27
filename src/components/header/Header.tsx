@@ -1,5 +1,7 @@
 import { logo, user, shop } from "../../../public/allPictures.tsx";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 const Header = () => {
   return (
     <header className="w-full h-[80px] bg-white">
