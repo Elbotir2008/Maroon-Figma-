@@ -2,7 +2,7 @@ import { logo, user, shop } from "../../../public/allPictures.tsx";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <header className=" w-full h-[80px] bg-white">
+    <header className="w-full h-[80px] bg-white">
       <div className="container">
         <nav className="flex justify-between items-center">
           <div className="nav-logo p-[30px]">
@@ -11,9 +11,7 @@ const Header = () => {
           <div className="nav-links">
             <ul className="flex gap-[40px] text-[17px] text-mainColor">
               <Link to="/catalog">
-                <li>
-                  <a href="#">Каталог</a>
-                </li>
+                <li>Каталог </li>
               </Link>
               <li>
                 <a href="#">О нас</a>

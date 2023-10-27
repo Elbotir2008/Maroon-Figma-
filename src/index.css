@@ -11,6 +11,7 @@ html {
   font-size: 62.5%;
   font-family: Mplus 1p;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 span {
   display: inline-block;
@@ -64,7 +65,7 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.section-4 {
+/* .section-4 {
   background-image: url(../public/assets/history-img.svg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -128,7 +129,7 @@ main {
   background-image: url(../public//assets/katalog-12.svg);
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */
 .box {
   width: 25rem;
   height: 30rem;
