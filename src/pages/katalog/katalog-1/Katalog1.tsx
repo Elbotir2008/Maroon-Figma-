@@ -24,6 +24,8 @@ const Katalog1 = () => {
   }, []);
 
   const [input, setInput] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   const searchText = (e) => {
     e.preventDefault();
     const inputText = e.target.value.toLowerCase();
@@ -31,21 +33,33 @@ const Katalog1 = () => {
     console.log(input);
   };
 
+  const filterByCategory = (category) => {
+    setSelectedCategory(category);
+  };
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
   const filtered = allposts
-    .slice(indexOfFirstPost, indexOfLastPost)
     .filter((el) => {
-      if (input === "") {
-        return el;
-      } else {
+      if (selectedCategory === "" && input === "") {
+        return true;
+      } else if (selectedCategory !== "" && input === "") {
+        return el.category === selectedCategory;
+      } else if (selectedCategory === "" && input !== "") {
         return (
           el.name.toLowerCase().includes(input) ||
           el.title.toLowerCase().includes(input)
         );
+      } else {
+        return (
+          el.category === selectedCategory &&
+          (el.name.toLowerCase().includes(input) ||
+            el.title.toLowerCase().includes(input))
+        );
       }
-    });
+    })
+    .slice(indexOfFirstPost, indexOfLastPost);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -55,14 +69,28 @@ const Katalog1 = () => {
     <div>
       <section>
         <div className="container">
-          <input
-            type="text"
-            name="search"
-            placeholder="Search..."
-            id="search"
-            className="py-3 px-2 w-[50rem]  border-[2px]"
-            onChange={searchText}
-          />
+          <div className="flex">
+            <input
+              type="text"
+              name="search"
+              placeholder="Search..."
+              id="search"
+              className="py-3 px-2 w-[50rem]  border-[2px]"
+              onChange={searchText}
+            />
+            <div className="categories">
+              <select
+                onChange={(e) => filterByCategory(e.target.value)}
+                className="w-[10rem] py-[1rem]"
+              >
+                <option value="all">All</option>
+                <option value="Crem">Crem</option>
+                <option value="Mask">Mask</option>
+                <option value="Powders">Powders</option>
+                <option value="Foams">Foams</option>
+              </select>
+            </div>
+          </div>
           <div className="boxes grid grid-cols-4 p-[5rem] gap-2">
             {filtered.length > 0
               ? filtered.map((fl) => (
