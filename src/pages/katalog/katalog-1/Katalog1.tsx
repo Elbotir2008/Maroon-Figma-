@@ -2,10 +2,20 @@ import HomeCopies from "../HomeCopies";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+type Product = {
+  id: string;
+  image: string;
+  name: string;
+  category: string;
+  weight: string;
+  price: string;
+  title: string;
+  description: string;
+};
 
 const Katalog1 = () => {
-  const [posts, setPosts] = useState([]);
-  const [allposts, setAllPosts] = useState([]);
+  // const [allposts, setAllPosts] = useState([]);
+  const [allposts, setAllPosts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 4;
 
@@ -26,14 +36,14 @@ const Katalog1 = () => {
   const [input, setInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const searchText = (e) => {
+  const searchText = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const inputText = e.target.value.toLowerCase();
     setInput(inputText);
     console.log(input);
   };
 
-  const filterByCategory = (category) => {
+  const filterByCategory = (category: any) => {
     setSelectedCategory(category);
   };
 
@@ -61,7 +71,7 @@ const Katalog1 = () => {
     })
     .slice(indexOfFirstPost, indexOfLastPost);
 
-  const paginate = (pageNumber) => {
+  const paginate = (pageNumber: any) => {
     setCurrentPage(pageNumber);
   };
 
@@ -85,7 +95,7 @@ const Katalog1 = () => {
               >
                 <option value="all">All</option>
                 <option value="Crem">Crem</option>
-                <option value="Mask">Mask</option>
+                <option value="mask">Mask</option>
                 <option value="Powders">Powders</option>
                 <option value="Foams">Foams</option>
               </select>

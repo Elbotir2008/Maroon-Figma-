@@ -2,9 +2,20 @@ import axios from "axios";
 import { arrow, arrow2 } from "../../../../public/allPictures";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+type Product = {
+  id: number;
+  image: string;
+  name: string;
+  category: string;
+  weight: string;
+  price: string;
+  title: string;
+  description: string;
+};
 
 const Section1 = () => {
-  const [posts, setPosts] = useState([]);
+  // const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Product[]>([]);
 
   const fetchPosts = async () => {
     try {
