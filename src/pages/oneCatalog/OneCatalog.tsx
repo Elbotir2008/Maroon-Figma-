@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-// import Section1 from "../home/section-1/Section1";
+import Section1 from "../home/section-1/Section1";
 
 const OneCatalog = () => {
   const param = useParams();
@@ -65,7 +65,9 @@ const OneCatalog = () => {
             : null}
         </div>
       </section>
-      <div className="my-[10rem]">{/* <Section1 /> */}</div>
+      <div className="my-[10rem]">
+        <Section1 />
+      </div>
     </div>
   );
 };
