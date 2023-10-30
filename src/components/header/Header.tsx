@@ -24,9 +24,11 @@ const Header = () => {
               <li>
                 <img src={user} alt="Eror" />
               </li>
-              <li>
-                <img src={shop} alt="Eror" />
-              </li>
+              <Link to="/korzinka">
+                <li>
+                  <img src={shop} alt="Eror" />
+                </li>
+              </Link>
             </ul>
           </div>
         </nav>

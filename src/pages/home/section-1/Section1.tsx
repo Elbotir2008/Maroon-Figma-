@@ -21,7 +21,7 @@ const Section1 = () => {
     try {
       let res = await axios.get("http://localhost:3000/cosmetics?_limit=4");
       setPosts(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     } catch (err) {
       console.log(err);
     }

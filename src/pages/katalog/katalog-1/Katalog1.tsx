@@ -14,7 +14,6 @@ type Product = {
 };
 
 const Katalog1 = () => {
-  // const [allposts, setAllPosts] = useState([]);
   const [allposts, setAllPosts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 4;
@@ -23,7 +22,7 @@ const Katalog1 = () => {
     try {
       let res = await axios.get("http://localhost:3000/cosmetics");
       setAllPosts(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -79,7 +78,7 @@ const Katalog1 = () => {
     <div>
       <section>
         <div className="container">
-          <div className="flex">
+          <div className="flex justify-between">
             <input
               type="text"
               name="search"

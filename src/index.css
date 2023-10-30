@@ -41,7 +41,7 @@ main {
   margin: 0 auto;
 }
 .hero-section {
-  background-image: url(../public/assets/heroBackImg.svg);
+  background-image: url(../public/heroBackImg.svg);
 }
 .button-hero {
   transition: 0.1s linear;

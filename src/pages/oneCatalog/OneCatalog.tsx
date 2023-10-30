@@ -2,10 +2,23 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Section1 from "../home/section-1/Section1";
+import { ToastContainer, toast } from "react-toastify";
 
-const OneCatalog = () => {
-  const param = useParams();
-  const [product, setProduct] = useState([]);
+type Product = {
+  id: number;
+  image: string;
+  name: string;
+  category: string;
+  weight: string;
+  price: string;
+  title: string;
+  description: string;
+};
+
+const OneCatalog = ({ cart, setCart }: any) => {
+  // console.log(cart);
+  const param: any = useParams();
+  const [posts, setPosts] = useState<Product[]>([]);
   const paramId = param.id * 1;
 
   useEffect(() => {
@@ -14,7 +27,7 @@ const OneCatalog = () => {
         const response = await axios.get(
           "http://localhost:3000/cosmetics/" + paramId
         );
-        setProduct([response.data]);
+        setPosts([response.data]);
       } catch (error) {
         console.error(error);
       }
@@ -22,13 +35,27 @@ const OneCatalog = () => {
 
     fetchData();
   }, [paramId]);
-  console.log(product);
+  // console.log(posts);
+
+  const showToastMessage = () => {
+    toast.success("Success added to cart!", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
+  const handleAddToCart = (product: Product) => {
+    if (!cart.includes(product)) {
+      setCart([...cart, { ...product, numOfProducts: 1 }]);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
   return (
     <div className="div">
       <section>
         <div className="container">
-          {product.length > 0
-            ? product.map((pr) => (
+          {posts.length > 0
+            ? posts.map((pr) => (
                 <div className="oneCard p-[5rem]" key={pr.id}>
                   <div className="flex gap-[5rem]">
                     <img src={pr.image} className="w-[40rem]" alt="Eror" />
@@ -55,9 +82,16 @@ const OneCatalog = () => {
                       <h3 className="text-[3rem] my-5 text-pharColor">
                         {pr.price}
                       </h3>
-                      <button className="button-hero border-solid border-pharColor border-[1.2px] px-[3rem] py-[1rem] mt-[3rem]">
-                        Добавить в корзину
+                      <button
+                        className="button-hero border-solid border-pharColor border-[1.2px] px-[3rem] py-[1rem] mt-[3rem]"
+                        onClick={showToastMessage}
+                        // onClick={() => handleAddToCart(pr)}
+                      >
+                        <p onClick={() => handleAddToCart(pr)}>
+                          Добавить в корзину
+                        </p>
                       </button>
+                      <ToastContainer />
                     </div>
                   </div>
                 </div>
