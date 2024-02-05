@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from "react";
 
 export type Product = {
@@ -13,7 +14,7 @@ export type Product = {
 const Cart = ({ cart, setCart }: any) => {
   console.log(cart);
   useEffect(() => {
-    let prods = JSON.parse(localStorage.getItem("cart")) || [];
+    const prods = JSON.parse(localStorage.getItem("cart")!) || [];
     setCart(prods);
   }, []);
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import HomeCopies from "../HomeCopies";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -20,7 +21,7 @@ const Katalog1 = () => {
 
   const fetchPosts = async () => {
     try {
-      let res = await axios.get("http://localhost:3000/cosmetics");
+      const res = await axios.get("http://localhost:3000/cosmetics");
       setAllPosts(res.data);
       // console.log(res.data);
     } catch (err) {
